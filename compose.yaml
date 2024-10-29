@@ -1,5 +1,6 @@
 services:
   php:
+    container_name: app-php
     build:
         context: .
         target: frankenphp_dev
