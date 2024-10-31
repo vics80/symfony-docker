@@ -1,6 +1,5 @@
 services:
   php:
-    user: "${UID}:${GID}"
     image: ${IMAGES_PREFIX:-}app-php
     restart: unless-stopped
     environment:
