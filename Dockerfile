@@ -34,7 +34,7 @@ RUN set -eux; \
   		pdo \
 		pdo_mysql \
 	;
-USER 1000:1000
+
 # https://getcomposer.org/doc/03-cli.md#composer-allow-superuser
 ENV COMPOSER_ALLOW_SUPERUSER=1
 
