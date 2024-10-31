@@ -12,7 +12,7 @@ FROM dunglas/frankenphp:1-php8.3 AS frankenphp_upstream
 FROM frankenphp_upstream AS frankenphp_base
 
 WORKDIR /app
-VOLUME /app/var/
+#VOLUME /app/var/
 
 # persistent / runtime deps
 # hadolint ignore=DL3008
