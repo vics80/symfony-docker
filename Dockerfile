@@ -95,6 +95,6 @@ RUN set -eux; \
 	chmod +x bin/console; sync;
 RUN usermod -u ${UID} www-data
 
-RUN chown -R www-data:root /app
+RUN chown -R www-data:www-data /app
 
 USER www-data
