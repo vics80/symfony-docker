@@ -93,12 +93,3 @@ RUN set -eux; \
 	composer dump-env prod; \
 	composer run-script --no-dev post-install-cmd; \
 	chmod +x bin/console; sync;
-
-RUN usermod -u ${UID} www-data
-
-RUN \
-	useradd -D ${UID}; \
-	setcap CAP_NET_BIND_SERVICE=+eip /usr/local/bin/frankenphp; \
-	chown -R ${UID}:${UID} /data/caddy && chown -R ${UID}:${UID} /config/caddy
-
-USER www-data
