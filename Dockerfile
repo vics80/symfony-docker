@@ -96,4 +96,9 @@ RUN set -eux; \
 
 RUN usermod -u ${UID} www-data
 
+RUN \
+	useradd -D ${UID}; \
+	setcap CAP_NET_BIND_SERVICE=+eip /usr/local/bin/frankenphp; \
+	chown -R ${UID}:${UID} /data/caddy && chown -R ${UID}:${UID} /config/caddy
+
 USER www-data
