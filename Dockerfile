@@ -87,14 +87,15 @@ RUN set -eux; \
 COPY --link . ./
 RUN rm -Rf frankenphp/
 
+RUN usermod -u ${UID} www-data
+
+RUN chown -R www-data:www-data /app
+
+USER www-data
+
 RUN set -eux; \
 	mkdir -p var/cache var/log; \
 	composer dump-autoload --classmap-authoritative --no-dev; \
 	composer dump-env prod; \
 	composer run-script --no-dev post-install-cmd; \
 	chmod +x bin/console; sync;
-RUN usermod -u ${UID} www-data
-
-RUN chown -R www-data:www-data /app
-
-USER www-data
