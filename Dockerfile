@@ -96,8 +96,4 @@ RUN set -eux; \
 
 RUN usermod -u ${UID} www-data
 
-RUN chown -R www-data:www-data /app
-
 USER www-data
-
-RUN --rm -v $(pwd):/app -w /app busybox chown -R $(id -u):$(id -g) .
