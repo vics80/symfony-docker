@@ -2,7 +2,7 @@
 
 # Versions
 FROM dunglas/frankenphp:1-php8.3 AS frankenphp_upstream
-USER 1000:1000
+
 # The different stages of this Dockerfile are meant to be built into separate images
 # https://docs.docker.com/develop/develop-images/multistage-build/#stop-at-a-specific-build-stage
 # https://docs.docker.com/compose/compose-file/#target
@@ -34,7 +34,7 @@ RUN set -eux; \
   		pdo \
 		pdo_mysql \
 	;
-
+USER 1000:1000
 # https://getcomposer.org/doc/03-cli.md#composer-allow-superuser
 ENV COMPOSER_ALLOW_SUPERUSER=1
 
