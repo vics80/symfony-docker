@@ -1,7 +1,7 @@
 #!/bin/sh
 set -e
 
-chown -R www-data:root /app/var
+chown -R www-data:www-data /app/var
 
 if [ "$1" = 'frankenphp' ] || [ "$1" = 'php' ] || [ "$1" = 'bin/console' ]; then
 	# Install the project the first time PHP is started
