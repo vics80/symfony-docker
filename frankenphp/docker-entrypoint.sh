@@ -1,8 +1,6 @@
 #!/bin/sh
 set -e
 
-chown -R www-data:www-data /app/var
-
 if [ "$1" = 'frankenphp' ] || [ "$1" = 'php' ] || [ "$1" = 'bin/console' ]; then
 	# Install the project the first time PHP is started
 	# After the installation, the following block can be deleted
@@ -58,4 +56,5 @@ if [ "$1" = 'frankenphp' ] || [ "$1" = 'php' ] || [ "$1" = 'bin/console' ]; then
 	setfacl -R -m u:www-data:rwX -m u:"$(whoami)":rwX var
 	setfacl -dR -m u:www-data:rwX -m u:"$(whoami)":rwX var
 fi
+chown -R www-data /app
 exec docker-php-entrypoint "$@"
