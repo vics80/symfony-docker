@@ -94,4 +94,6 @@ RUN set -eux; \
 	composer dump-env prod; \
 	composer run-script --no-dev post-install-cmd; \
 	chmod +x bin/console; sync;
-RUN chown root .env
+RUN usermod -u ${UID} www-data
+
+RUN chown -R www-data:www-data /app
