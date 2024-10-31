@@ -12,6 +12,7 @@ FROM dunglas/frankenphp:1-php8.3 AS frankenphp_upstream
 FROM frankenphp_upstream AS frankenphp_base
 
 WORKDIR /app
+VOLUME /app/var/
 
 # persistent / runtime deps
 # hadolint ignore=DL3008
@@ -94,6 +95,6 @@ RUN set -eux; \
 	chmod +x bin/console; sync;
 RUN usermod -u ${UID} www-data
 
-RUN chown -R www-data:www-data /app
-RUN chown -R www-data:www-data /app/var
+RUN chown -R www-data:root /app
+
 USER www-data
