@@ -12,7 +12,8 @@ FROM dunglas/frankenphp:1-php8.3 AS frankenphp_upstream
 FROM frankenphp_upstream AS frankenphp_base
 
 WORKDIR /app
-#VOLUME /app/var/
+
+VOLUME /app/var/
 
 # persistent / runtime deps
 # hadolint ignore=DL3008
@@ -21,6 +22,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 	file \
 	gettext \
 	git \
+ 	pdo \
+  	pdo_mysql \
 	&& rm -rf /var/lib/apt/lists/*
 
 RUN set -eux; \
@@ -30,8 +33,6 @@ RUN set -eux; \
 		intl \
 		opcache \
 		zip \
-  		pdo \
-		pdo_mysql \
 	;
 
 # https://getcomposer.org/doc/03-cli.md#composer-allow-superuser
