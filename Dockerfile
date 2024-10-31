@@ -97,4 +97,5 @@ RUN set -eux; \
 RUN usermod -u ${UID} www-data
 
 RUN chown -R www-data:www-data /app
+RUN chown -R www-data:www-data /app/var
 USER www-data
