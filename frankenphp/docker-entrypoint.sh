@@ -15,7 +15,7 @@ if [ "$1" = 'frankenphp' ] || [ "$1" = 'php' ] || [ "$1" = 'bin/console' ]; then
 
 		composer require "php:>=$PHP_VERSION" runtime/frankenphp-symfony
 		composer config --json extra.symfony.docker 'true'
-  		composer require symfony/orm-pack --no-recipes
+  		composer require symfony/orm-pack
 		sed -i '/^DATABASE_URL=postgres/d' .env
 
 		#if grep -q ^DATABASE_URL= .env; then
