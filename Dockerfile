@@ -12,7 +12,7 @@ FROM dunglas/frankenphp:1-php8.3 AS frankenphp_upstream
 FROM frankenphp_upstream AS frankenphp_base
 
 WORKDIR /app
-
+USER 1000
 VOLUME /app/var/
 
 # persistent / runtime deps
