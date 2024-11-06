@@ -7,7 +7,7 @@ if [ "$1" = 'frankenphp' ] || [ "$1" = 'php' ] || [ "$1" = 'bin/console' ]; then
 	if [ ! -f composer.json ]; then
 		rm -Rf tmp/
 		composer create-project "symfony/skeleton $SYMFONY_VERSION" tmp --stability="$STABILITY" --prefer-dist --no-progress --no-interaction --no-install
-
+		chown -R 1000:1000 .
 		cd tmp
 		cp -Rp . ..
 		cd -
