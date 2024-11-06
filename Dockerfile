@@ -33,6 +33,8 @@ RUN set -eux; \
 		intl \
 		opcache \
 		zip \
+  		pdo \
+    	pdo_mysql \
 	;
 
 # https://getcomposer.org/doc/03-cli.md#composer-allow-superuser
