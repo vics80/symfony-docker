@@ -14,7 +14,7 @@ FROM frankenphp_upstream AS frankenphp_base
 WORKDIR /app
 USER 1000
 VOLUME /app/var/
-
+USER root
 # persistent / runtime deps
 # hadolint ignore=DL3008
 RUN apt-get update && apt-get install -y --no-install-recommends \
@@ -94,3 +94,4 @@ RUN set -eux; \
 	composer dump-env prod; \
 	composer run-script --no-dev post-install-cmd; \
 	chmod +x bin/console; sync;
+USER 1000
